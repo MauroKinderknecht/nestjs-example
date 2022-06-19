@@ -6,7 +6,7 @@ import { CreateBrandDTO } from '@models/brand/dto';
 import { IBrandService } from '@brand/service';
 
 @Controller('brand')
-export class BrandController {
+export class ProductController {
   constructor(@Inject(IBrandService) private readonly brandService: IBrandService) {}
 
   @Post()

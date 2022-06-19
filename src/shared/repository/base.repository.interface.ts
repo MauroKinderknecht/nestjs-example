@@ -1,7 +1,7 @@
-export interface IBaseRepository<T extends { id: any }> {
-  create(data: any): Promise<T>;
-  findAll(): Promise<T[]>;
-  findById(id: T['id']): Promise<T>;
-  findMany(query: any): Promise<T[]>;
-  findOne(query: any): Promise<T>;
+export abstract class IBaseRepository<T extends { id: any }> {
+  abstract create(data: any): Promise<T>;
+  abstract findAll(): Promise<T[]>;
+  abstract findById(id: T['id']): Promise<T>;
+  abstract findMany(query: any): Promise<T[]>;
+  abstract findOne(query: any): Promise<T>;
 }

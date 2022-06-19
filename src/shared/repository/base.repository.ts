@@ -19,11 +19,11 @@ export class BaseRepository<T extends { id: any }> implements IBaseRepository<T>
     return this.prisma[this.model].findUnique({ where: { id } });
   }
 
-  findMany(query: any): Promise<T[]> {
-    return this.prisma[this.model].findMany({ query });
+  async findMany(query: any): Promise<T[]> {
+    return this.prisma[this.model].findMany({ ...query });
   }
 
   findOne(query: any): Promise<T> {
-    return this.prisma[this.model].findFirst({ query });
+    return this.prisma[this.model].findFirst({ ...query });
   }
 }

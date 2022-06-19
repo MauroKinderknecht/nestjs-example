@@ -2,12 +2,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator dto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "../src/models"
+  outputToNestJsResourceStructure = "true"
+  dtoSuffix                       = "DTO"
+  reExport                        = "true"
+  fileNamingStyle                 = "camel"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Brand {
+  // @DtoCreateHidden
+  // @DtoUpdateHidden
   id       String    @id @default(uuid())
   name     String
   products Product[]
