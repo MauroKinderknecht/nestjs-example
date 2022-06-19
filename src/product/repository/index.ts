@@ -1,2 +1,2 @@
-export * from './brand.repository.interface';
-export * from './brand.repository';
+export * from './product.repository.interface';
+export * from './product.repository';

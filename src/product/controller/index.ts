@@ -1,1 +1,1 @@
-export * from './brand.controller';
+export * from './product.controller';

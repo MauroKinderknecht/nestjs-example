@@ -1,2 +1,2 @@
-export * from './brand.service.interface';
-export * from './brand.service';
+export * from './product.service.interface';
+export * from './product.service';

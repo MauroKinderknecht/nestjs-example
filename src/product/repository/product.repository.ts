@@ -3,17 +3,17 @@ import { Injectable } from '@nestjs/common';
 import { BaseRepository } from '@shared/repository';
 import { PrismaService } from '@shared/service';
 
-import { Brand } from '@models/brand/entities';
+import { Product } from '@models/product/entities';
 
-import { IBrandRepository } from '@brand/repository';
+import { IProductRepository } from '@product/repository';
 
 @Injectable()
-export class BrandRepository extends BaseRepository<Brand> implements IBrandRepository {
+export class ProductRepository extends BaseRepository<Product> implements IProductRepository {
   constructor(prisma: PrismaService) {
-    super(prisma, 'brand');
+    super(prisma, 'product');
   }
 
-  async findByIdWithProducts(id: string): Promise<Brand> {
+  async findByIdWithProducts(id: string): Promise<Product> {
     return this.findOne({
       where: { id },
       include: { products: true },
