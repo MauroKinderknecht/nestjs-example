@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Brand {
+  id       String    @id @default(uuid())
+  name     String
+  products Product[]
+}
+
+model Product {
+  id      String  @id @default(uuid())
+  sku     String  @unique
+  model   String  @unique
+  name    String
+  specs   Json
+  reviews Float
+  brand   Brand   @relation(fields: [brandId], references: [id])
+  brandId String
+  Price   Price[]
+}
+
+model Price {
+  id        String    @id @default(uuid())
+  offer     Offer     @default(NORMAL)
+  price     Int
+  product   Product   @relation(fields: [productId], references: [id])
+  productId String
+  asOf      DateTime  @default(now())
+  until     DateTime?
+}
+
+enum Offer {
+  NORMAL
+  SALE
+}
