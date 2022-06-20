@@ -17,8 +17,8 @@ services:
       - '8080:8080'
     depends_on:
       - database
-    env_file:
-      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@database:5432/best-buy
 volumes:
     database:
         driver: local

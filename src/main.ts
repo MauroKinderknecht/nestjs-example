@@ -24,6 +24,3 @@ const init = async () => {
 };
 
 init();
-
-// TODO: Make docker work
-// TODO: Load test with Locust
