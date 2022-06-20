@@ -20,7 +20,7 @@ export class PriceRepository extends BaseRepository<Price> implements IPriceRepo
         asOf: { lte: now },
         until: { gte: now },
       },
-      orderBy: { price: 'DESC' },
+      orderBy: { price: 'desc' },
       distinct: ['offer'],
     });
   }
