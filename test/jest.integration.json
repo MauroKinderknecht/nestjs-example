@@ -1,9 +1,19 @@
 {
   "moduleFileExtensions": ["js", "json", "ts"],
-  "rootDir": ".",
+  "rootDir": "..",
+  "roots": [
+    "<rootDir>/test"
+  ],
   "testEnvironment": "node",
-  "testRegex": ".e2e-spec.ts$",
+  "testRegex": ".*\\.ispec\\.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@brand/(.*)": "<rootDir>/src/brand/$1",
+    "@price/(.*)": "<rootDir>/src/price/$1",
+    "@product/(.*)": "<rootDir>/src/product/$1",
+    "@shared/(.*)": "<rootDir>/src/shared/$1",
+    "@models/(.*)": "<rootDir>/src/models/$1"
   }
 }

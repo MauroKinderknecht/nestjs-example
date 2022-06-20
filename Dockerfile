@@ -14,7 +14,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:16
+FROM builder AS production
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./

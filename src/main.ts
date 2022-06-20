@@ -12,14 +12,18 @@ const init = async () => {
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }));
 
   const config = new DocumentBuilder()
-    .setTitle('NestJS API')
-    .setDescription('The NestJS API description')
+    .setTitle('NestJS Prisma API')
+    .setDescription('Description')
     .setVersion('1.0')
     .build();
 
-  // SwaggerModule.setup('api', app, config);
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('docs', app, document);
 
   await app.listen(8080);
 };
 
 init();
+
+// TODO: Make docker work
+// TODO: Load test with Locust

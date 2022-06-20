@@ -1,9 +1,15 @@
 import { Module } from '@nestjs/common';
 
-import { PrismaService } from '@shared/service';
+import { DatabaseService } from '@shared/service';
+import { PrismaService } from '@shared/service/prisma/prisma.service';
+
+const databaseServiceProvider = {
+  provide: DatabaseService,
+  useClass: PrismaService,
+};
 
 @Module({
-  exports: [PrismaService],
-  providers: [PrismaService],
+  exports: [databaseServiceProvider],
+  providers: [databaseServiceProvider],
 })
 export class SharedModule {}

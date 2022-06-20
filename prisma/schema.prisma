@@ -3,14 +3,14 @@ generator client {
   binaryTargets = ["native", "linux-musl"]
 }
 
-generator dto {
-  provider                        = "prisma-generator-nestjs-dto"
-  output                          = "../src/models"
-  outputToNestJsResourceStructure = "true"
-  dtoSuffix                       = "DTO"
-  reExport                        = "true"
-  fileNamingStyle                 = "camel"
-}
+// generator dto {
+//  provider                        = "prisma-generator-nestjs-dto"
+//  output                          = "../src/models"
+//  outputToNestJsResourceStructure = "true"
+//  dtoSuffix                       = "DTO"
+//  reExport                        = "true"
+//  fileNamingStyle                 = "camel"
+//}
 
 datasource db {
   provider = "postgresql"

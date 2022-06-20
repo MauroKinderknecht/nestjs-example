@@ -1,8 +1,12 @@
 import { Injectable, OnModuleInit, OnModuleDestroy, INestApplication } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { DatabaseService } from '@shared/service';
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
+export class PrismaService extends DatabaseService implements OnModuleInit, OnModuleDestroy {
+  constructor() {
+    super();
+  }
+
   async onModuleInit() {
     await this.$connect();
   }
@@ -17,8 +21,3 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
     });
   }
 }
-
-export const Models = Object.getOwnPropertyNames(new PrismaClient()).filter(
-  (model) =>
-    !['disconnect', 'connect', 'executeRaw', 'queryRaw', 'transaction', 'on'].includes(model) && !model.startsWith('_'),
-);

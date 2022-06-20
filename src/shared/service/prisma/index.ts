@@ -1,1 +1,2 @@
-export * from './prisma.service';
+export * from './database.service';
+export * from './models';
