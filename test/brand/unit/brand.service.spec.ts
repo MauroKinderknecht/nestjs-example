@@ -1,14 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { NotFoundError } from '@shared/errors';
-
 import { CreateBrandDTO } from '@models/brand/dto';
 import { Brand } from '@models/brand/entities';
 
 import { BrandService, IBrandService } from '@brand/service';
 import { BrandRepository, IBrandRepository } from '@brand/repository';
-
-import { DummyBrandRepository } from '../dummies';
 
 describe('BrandController Unit Test', () => {
   let brandService: IBrandService;

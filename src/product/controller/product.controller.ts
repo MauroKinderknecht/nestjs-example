@@ -19,8 +19,8 @@ export class ProductController {
     return await this.productService.findAll();
   }
 
-  @Get('/:id')
-  async getProductWithProducts(@Param('id') id: string): Promise<Product> {
-    return await this.productService.findByIdWithProducts(id);
+  @Get('/:product')
+  async searchProducts(@Param('product') product: string): Promise<Product[]> {
+    return await this.productService.search(product);
   }
 }

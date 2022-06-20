@@ -13,10 +13,16 @@ export class ProductRepository extends BaseRepository<Product> implements IProdu
     super(prisma, 'product');
   }
 
-  async findByIdWithProducts(id: string): Promise<Product> {
-    return this.findOne({
-      where: { id },
-      include: { products: true },
+  findByName(product: string): Promise<Product[]> {
+    return this.findMany({
+      where: {
+        name: {
+          contains: product,
+        },
+      },
+      orderBy: {
+        reviews: 'desc',
+      },
     });
   }
 }

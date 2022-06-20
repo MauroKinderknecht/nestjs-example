@@ -16,13 +16,11 @@ export class ProductService implements IProductService {
     return this.repository.create(product);
   }
 
-  async findByIdWithProducts(id: string): Promise<Product> {
-    const product = await this.repository.findByIdWithProducts(id);
-    if (!product) throw new NotFoundError('Product');
-    return product;
-  }
-
   async findAll() {
     return this.repository.findAll();
+  }
+
+  search(product: string): Promise<Product[]> {
+    return this.repository.findByName(product);
   }
 }

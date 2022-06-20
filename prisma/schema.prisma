@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
 }
 
 generator dto {
@@ -30,17 +31,22 @@ model Product {
   specs   Json
   reviews Float
   brand   Brand   @relation(fields: [brandId], references: [id])
+  // @DtoCreateOptional
   brandId String
   Price   Price[]
 }
 
 model Price {
   id        String    @id @default(uuid())
+  // @DtoCreateOptional
   offer     Offer     @default(NORMAL)
   price     Int
   product   Product   @relation(fields: [productId], references: [id])
+  // @DtoCreateOptional
   productId String
+  // @DtoCreateOptional
   asOf      DateTime  @default(now())
+  // @DtoCreateOptional
   until     DateTime?
 }
 

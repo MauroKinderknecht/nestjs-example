@@ -19,7 +19,7 @@ const init = async () => {
 
   // SwaggerModule.setup('api', app, config);
 
-  await app.listen(3000);
+  await app.listen(8080);
 };
 
 init();
