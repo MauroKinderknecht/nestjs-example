@@ -1,7 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { NotFoundError } from '@shared/errors';
-
 import { CreatePriceDTO } from '@models/price/dto';
 import { Price } from '@models/price/entities';
 
@@ -19,9 +17,5 @@ export class PriceService implements IPriceService {
   async findCurrentByProductId(productId: string): Promise<Price[]> {
     const now = new Date();
     return this.repository.findCurrentByProductId(productId, now);
-  }
-
-  async findAll() {
-    return this.repository.findAll();
   }
 }

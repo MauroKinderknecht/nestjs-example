@@ -1,4 +1,4 @@
-import { Product } from '../../product/entities/product.entity';
+import type { Product } from '@models/product/entities';
 
 export class Brand {
   id: string;

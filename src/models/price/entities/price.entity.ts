@@ -1,5 +1,5 @@
 import { Offer } from '@prisma/client';
-import { Product } from '../../product/entities/product.entity';
+import type { Product } from '@models/product/entities';
 
 export class Price {
   id: string;

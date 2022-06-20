@@ -36,12 +36,11 @@ describe('BrandController Unit Test', () => {
   });
 
   describe('createBrand', () => {
-    const brand: Brand = {
-      id: '1',
-      name: 'Test Brand',
-    };
-
     it('should return a brand', async () => {
+      const brand: Brand = {
+        id: '1',
+        name: 'Test Brand',
+      };
       const input: CreateBrandDTO = {
         name: 'Test Brand',
       };
