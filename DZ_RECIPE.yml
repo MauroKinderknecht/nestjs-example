@@ -1,0 +1,22 @@
+dev:
+  commands:
+    - command: npm install
+      directory: best-buy-server
+      name: install cmd
+  name: ws_delete_vcluster
+  packages:
+    - dz.docker
+    - nixpkgs.nodejs_18
+    - nixpkgs.openssl
+  repos:
+    - https://github.com/MauroKinderknecht/best-buy-server
+compute:
+  compute_name: default
+  os_family: UBUNTU_22_04
+  region: us-west-1
+  resources:
+    cpus: 4+
+    disk: 50
+network:
+  category: container
+  network_name: default
